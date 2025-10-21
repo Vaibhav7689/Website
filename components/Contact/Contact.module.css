@@ -1,0 +1,376 @@
+.contact {
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #1e2952 0%, #2d3561 100%);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.form {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formGroup {
+  position: relative;
+}
+
+.formGroup input {
+  width: 100%;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.formGroup label {
+  position: absolute;
+  left: 0;
+  top: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.formGroup input:focus + label,
+.formGroup input:valid + label,
+.formGroup.focused label {
+  top: -0.5rem;
+  font-size: 0.85rem;
+  color: #667eea;
+}
+
+.bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+}
+
+.formGroup input:focus ~ .bar {
+  width: 100%;
+}
+
+.phoneGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.countryCode {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+}
+
+.captchaRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.captchaGroup {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.captchaLabel {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.equation {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.captchaInput {
+  width: 80px !important;
+  text-align: center;
+}
+
+.submitButton {
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+}
+
+.submitButton span {
+  position: relative;
+  z-index: 1;
+}
+
+.buttonRipple {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.submitButton:hover .buttonRipple {
+  width: 300px;
+  height: 300px;
+}
+
+.submitButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
+}
+
+.infoCard {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoTitle {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.address {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.directionLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #667eea;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.directionLink:hover {
+  gap: 1rem;
+  color: #764ba2;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.socialIcon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  color: white;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.socialIcon:hover {
+  transform: translateY(-5px) rotate(360deg);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.5);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 968px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .captchaRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+/* For About.module.css */
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 1rem;
+  }
+
+  .visionMissionGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .card {
+    padding: 2rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 4rem 0.75rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+}
+
+/* For Careers.module.css */
+@media (max-width: 768px) {
+  .careers {
+    min-height: 60vh;
+    padding: 4rem 1rem;
+  }
+
+  .title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .description {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+
+/* For Contact.module.css */
+@media (max-width: 968px) {
+  .contact {
+    padding: 5rem 1rem;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .captchaRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.5rem;
+  }
+
+  .form,
+  .infoCard {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 4rem 0.75rem;
+  }
+
+  .form,
+  .infoCard {
+    padding: 1.5rem;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+}

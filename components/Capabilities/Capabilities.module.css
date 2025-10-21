@@ -1,0 +1,511 @@
+.capabilities {
+  padding: 8rem 2rem;
+  background: linear-gradient(135deg, #0f1729 0%, #1a1f3a 50%, #0f1729 100%);
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+.capabilities::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #667eea, transparent);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+.carouselWrapper {
+  position: relative;
+  height: 500px;
+  perspective: 1500px;
+  margin: 4rem 0;
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.flipCard {
+  position: absolute;
+  width: 350px;
+  height: 450px;
+  transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.flipCardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flipCard.flipped .flipCardInner {
+  transform: rotateY(180deg);
+}
+
+.flipCardFront,
+.flipCardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.flipCardFront {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flipCardBack {
+  background: rgba(15, 23, 41, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardGradient,
+.backGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  opacity: 0.4;
+}
+
+.backGradient {
+  opacity: 0.6;
+  height: 100%;
+}
+
+.frontContent {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.iconWrapper {
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: float 3s ease-in-out infinite;
+}
+
+.icon {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 5px 20px rgba(102, 126, 234, 0.6));
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  line-height: 1.3;
+}
+
+.flipIndicator {
+  color: rgba(255, 255, 255, 0.7);
+  animation: rotate 2s linear infinite;
+  margin-top: auto;
+}
+
+.backContent {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem;
+  z-index: 2;
+  color: white;
+  overflow-y: auto;
+}
+
+.backTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: white;
+  line-height: 1.2;
+}
+
+.description {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.detailsList {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.75rem 0;
+  flex: 1;
+}
+
+.detailItem {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.78rem;
+  padding: 0.35rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.checkmark {
+  color: #43e97b;
+  font-weight: bold;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.learnMore {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  align-self: center;
+  width: 100%;
+  max-width: 180px;
+  margin-top: 0.5rem;
+  flex-shrink: 0;
+}
+
+.learnMore:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.learnMore:hover .arrow {
+  transform: translateX(5px);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1200px) {
+  .flipCard {
+    width: 320px;
+    height: 420px;
+  }
+}
+
+@media (max-width: 768px) {
+  .capabilities {
+    padding: 5rem 1rem;
+  }
+
+  .carouselWrapper {
+    height: 450px;
+  }
+
+  .flipCard {
+    width: 300px;
+    height: 400px;
+  }
+
+  .frontContent,
+  .backContent {
+    padding: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+  }
+
+  .backTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .description {
+    font-size: 0.78rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .detailItem {
+    font-size: 0.75rem;
+    padding: 0.3rem 0;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    padding: 0.65rem 1.25rem;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .flipCard {
+    width: 280px;
+    height: 380px;
+  }
+
+  .carouselWrapper {
+    height: 420px;
+  }
+
+  .backContent {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .backTitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .detailItem {
+    font-size: 0.72rem;
+  }
+}
+
+
+/* Add/update these breakpoints */
+
+@media (max-width: 1024px) {
+  .capabilities {
+    padding: 6rem 1.5rem;
+  }
+
+  .flipCard {
+    width: 320px;
+    height: 420px;
+  }
+
+  .carouselWrapper {
+    height: 470px;
+  }
+}
+
+@media (max-width: 768px) {
+  .capabilities {
+    padding: 5rem 1rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .carouselWrapper {
+    height: 450px;
+    margin: 3rem 0;
+  }
+
+  .flipCard {
+    width: 300px;
+    height: 400px;
+  }
+
+  .frontContent,
+  .backContent {
+    padding: 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .icon {
+    font-size: 3rem;
+  }
+
+  .cardTitle {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .backTitle {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .description {
+    font-size: 0.78rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .detailItem {
+    font-size: 0.75rem;
+    padding: 0.3rem 0;
+  }
+
+  .learnMore {
+    font-size: 0.8rem;
+    padding: 0.65rem 1.25rem;
+    max-width: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .capabilities {
+    padding: 4rem 0.75rem;
+  }
+
+  .carouselWrapper {
+    height: 420px;
+  }
+
+  .flipCard {
+    width: 280px;
+    height: 380px;
+  }
+
+  .backContent {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .iconWrapper {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon {
+    font-size: 2.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.2rem;
+  }
+
+  .backTitle {
+    font-size: 1.1rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+
+  .detailItem {
+    font-size: 0.72rem;
+  }
+
+  .learnMore {
+    font-size: 0.75rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .flipCard {
+    width: 260px;
+    height: 360px;
+  }
+
+  .carouselWrapper {
+    height: 400px;
+  }
+}
